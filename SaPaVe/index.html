@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    SaPaVe | Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics
+  </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+    }
+
+    .publication-title {
+      font-family: "Google Sans", sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+    }
+
+    .publication-authors a {
+      color: #3273dc;
+      text-decoration: none;
+    }
+
+    .publication-authors a:hover {
+      text-decoration: underline;
+    }
+
+    .publication-links .button {
+      margin: 0.25rem 0.3rem;
+    }
+
+    .section-image {
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin: 1rem auto;
+      display: block;
+      max-width: 100%;
+    }
+
+    .highlight-box {
+      background: #f9fafc;
+      border-left: 4px solid #3273dc;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .metric-card {
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 1.2rem;
+      height: 100%;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      background: #fff;
+    }
+
+    .metric-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3273dc;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      background: #000;
+    }
+
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .small-caption {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .teaser-caption {
+      font-size: 1rem;
+      color: #444;
+      margin-top: 0.75rem;
+    }
+
+    pre {
+      border-radius: 10px;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    .footer {
+      padding: 2rem 1.5rem 2rem;
+    }
+
+    .tag.is-paper {
+      background-color: #eef3ff;
+      color: #2959c7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <strong>SaPaVe</strong>
+      </a>
+    </div>
+
+    <div class="navbar-menu is-active">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#dataset">Dataset</a>
+        <a class="navbar-item" href="#benchmark">Benchmark</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Title -->
+  <section class="hero hero-banner">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">
+              SaPaVe: Towards Active Perception and Manipulation
+              in Vision-Language-Action Models for Robotics
+            </h1>
+
+            <h2 class="subtitle is-4">
+              <span class="tag is-paper">Project Page</span>
+            </h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Mengzhen Liu<sup>1,3*</sup>,
+                Enshen Zhou<sup>2,3*‡</sup>,
+                Cheng Chi<sup>3</sup>,
+                Yi Han<sup>2,3</sup>,
+                Shanyu Rong<sup>1,3</sup>,
+                Liming Chen<sup>3</sup>,
+                Pengwei Wang<sup>3</sup>,
+                Zhongyuan Wang<sup>3</sup>,
+                Shanghang Zhang<sup>1,3†</sup>
+              </span>
+            </div>
+
+            <div class="is-size-6" style="margin-top: 0.8rem;">
+              <span class="author-block"><sup>1</sup>State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University</span>,
+              <span class="author-block"><sup>2</sup>Beihang University</span>,
+              <span class="author-block"><sup>3</sup>Beijing Academy of Artificial Intelligence</span>
+            </div>
+
+            <div class="is-size-6" style="margin-top: 0.8rem;">
+              <span><sup>*</sup>Equal Contribution</span>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <span><sup>‡</sup>Project Leader</span>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <span><sup>†</sup>Corresponding Author</span>
+            </div>
+
+            <div class="column has-text-centered" style="margin-top: 1rem;">
+              <div class="publication-links">
+                <a href="#" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+
+                <!-- <a href="#" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+
+                <a href="#" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+
+                <a href="#" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-chart-line"></i></span>
+                  <span>Benchmark</span>
+                </a> -->
+
+                <a href="#" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-film"></i></span>
+                  <span>Video</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="is-size-4" style="margin-top: 1rem;">
+              From passive perception to <strong>active perception and manipulation like humans</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Overview</h2>
+      <img src="assets/images/teaser.png" alt="SaPaVe teaser figure" class="section-image">
+      <p class="teaser-caption has-text-justified">
+        <strong>SaPaVe</strong> is an end-to-end framework for active manipulation that jointly integrates
+        <strong>semantic active perception</strong> and <strong>active-view execution</strong>.
+        It enables robots to actively move their camera viewpoint to acquire task-critical visual information,
+        and then ground the newly obtained observations into robust manipulation actions under dynamic viewpoints.
+      </p>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Highlights</h2>
+      </div>
+
+      <div class="highlight-box">
+        <ul>
+          <li><strong>SaPaVe</strong> unifies <strong>semantic active perception</strong> and <strong>active-view execution</strong> in an end-to-end VLA framework for robotics.</li>
+          <li>We introduce <strong>ActiveViewPose-200K</strong>, a large-scale dataset with <strong>200k image-language-camera movement pairs</strong> for learning semantic camera control.</li>
+          <li>We present <strong>ActiveManip-Bench</strong>, the <strong>first benchmark</strong> dedicated to evaluating active manipulation beyond fixed-view settings.</li>
+          <li>SaPaVe outperforms strong recent VLA baselines such as <strong>GR00T N1</strong> and <strong>π0</strong> in both simulation and real-world experiments.</li>
+          <li>Our bottom-up training strategy with a <strong>decoupled action space</strong> and <strong>universal spatial knowledge injection</strong> improves data efficiency and robustness.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Active perception and manipulation are crucial for robots to interact with complex scenes.
+              Existing methods struggle to unify semantic-driven active perception with robust, viewpoint-invariant execution.
+              To this end, we propose <strong>SaPaVe</strong>, an end-to-end framework that jointly learns these capabilities
+              in a data-efficient manner. Central to our approach is a <strong>decoupling of camera and manipulation actions</strong>,
+              together with a <strong>bottom-up training strategy</strong>: we first train semantic camera control on a large-scale dataset,
+              and then jointly optimize camera movement and manipulation through hybrid data.
+            </p>
+            <p>
+              To support this, we introduce <strong>ActiveViewPose-200K</strong>, a dataset comprising 200k
+              image-language-camera movement pairs for semantic camera movement learning, and a
+              <strong>3D geometry-aware module</strong> that improves execution robustness under dynamic viewpoints.
+              We further present <strong>ActiveManip-Bench</strong>, the first benchmark designed to evaluate active manipulation.
+              Extensive experiments in both simulation and real-world settings show that SaPaVe significantly outperforms
+              recent VLA models, demonstrating the importance of tightly coupled perception and execution learned through
+              decoupled yet coordinated strategies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Results -->
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Key Results</h2>
+      </div>
+
+      <div class="columns is-multiline">
+        <div class="column is-4">
+          <div class="metric-card has-text-centered">
+            <div class="metric-number">84.3%</div>
+            <p><strong>Semantic Active Perception</strong></p>
+            <p class="small-caption">Average success rate on ActiveViewPose-200K</p>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="metric-card has-text-centered">
+            <div class="metric-number">74.83%</div>
+            <p><strong>Simulation Success Rate</strong></p>
+            <p class="small-caption">Average success rate on ActiveManip-Bench</p>
+          </div>
+        </div>
+
+        <div class="column is-4">
+          <div class="metric-card has-text-centered">
+            <div class="metric-number">85.00%</div>
+            <p><strong>Real-World Success Rate</strong></p>
+            <p class="small-caption">Average success rate across active manipulation tasks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Method Overview</h2>
+      </div>
+
+      <img src="assets/images/method.png" alt="Method overview" class="section-image">
+
+      <div class="content has-text-justified">
+        <p>
+          <strong>SaPaVe</strong> is built around two main ideas:
+          <strong>(1) decoupled action heads and camera adapter</strong>, and
+          <strong>(2) universal spatial knowledge injection</strong>.
+        </p>
+        <p>
+          The model processes RGB observations, optional geometric inputs, and language instructions,
+          and predicts two kinds of outputs in a decoupled action space:
+          <strong>camera actions</strong> for active viewpoint adjustment and
+          <strong>manipulation actions</strong> for arm-hand control.
+          This decoupling helps reduce cross-interference between action types and improves learning efficiency.
+        </p>
+        <p>
+          The training follows a <strong>two-stage bottom-up strategy</strong>.
+          In <strong>Stage 1</strong>, the model learns semantic active perception using ActiveViewPose-200K,
+          which equips it with strong priors for deciding where to look.
+          In <strong>Stage 2</strong>, the model is further optimized for active manipulation using mixed data,
+          combining active camera control with robust task execution.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dataset -->
+  <section class="section" id="dataset">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">ActiveViewPose-200K</h2>
+      </div>
+
+      <img src="assets/images/dataset.png" alt="ActiveViewPose-200K" class="section-image">
+
+      <div class="content has-text-justified">
+        <p>
+          <strong>ActiveViewPose-200K</strong> is a large-scale, high-quality semantic active perception dataset
+          containing <strong>200,000 image-language-camera movement pairs</strong>.
+          It is designed to teach robots how to actively adjust their viewpoint according to task-relevant semantics.
+        </p>
+        <p>
+          The dataset is built through a semi-automatic pipeline including:
+        </p>
+        <ul>
+          <li><strong>3D asset curation and filtering</strong> from high-quality object repositories,</li>
+          <li><strong>procedural indoor scene generation</strong>,</li>
+          <li><strong>task-driven view annotation</strong> with optimal camera movement labels,</li>
+          <li><strong>instruction augmentation</strong> using LLM rewriting for diverse natural language commands.</li>
+        </ul>
+        <p>
+          The dataset covers various active perception scenarios including
+          visual centering, spatial directives, commonsense search, conditional reasoning, and container interaction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmark -->
+  <section class="section" id="benchmark">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">ActiveManip-Bench</h2>
+      </div>
+
+      <img src="assets/images/benchmark.png" alt="ActiveManip-Bench" class="section-image">
+
+      <div class="content has-text-justified">
+        <p>
+          <strong>ActiveManip-Bench</strong> is the first benchmark specifically designed to evaluate
+          <strong>active manipulation</strong> beyond traditional fixed-view settings.
+          It is built on NVIDIA Isaac Sim and features a humanoid robot with an active head camera.
+        </p>
+        <p>
+          The benchmark currently includes:
+        </p>
+        <ul>
+          <li><strong>12 active manipulation tasks</strong>,</li>
+          <li><strong>100 different objects</strong>,</li>
+          <li><strong>20 diverse scenes</strong>,</li>
+          <li>multiple visibility conditions including <strong>unoccluded</strong>, <strong>occluded</strong>, and <strong>out-of-view</strong> setups.</li>
+        </ul>
+        <p>
+          Tasks range from atomic operations such as pick, reorient, and open/close,
+          to long-horizon tasks such as fetch-from-drawer, fetch-from-cabinet, and liquid pouring.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiment Tables Summary -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Experimental Findings</h2>
+      </div>
+
+      <div class="content has-text-justified">
+        <ul>
+          <li>
+            On <strong>semantic active perception</strong>, SaPaVe reaches <strong>84.3%</strong> average success rate,
+            outperforming Gemini-2.5-Pro and other strong VLM baselines.
+          </li>
+          <li>
+            On <strong>ActiveManip-Bench</strong>, dynamic active viewpoints are shown to be essential,
+            especially in occluded and out-of-view tasks.
+          </li>
+          <li>
+            In <strong>real-world experiments</strong>, SaPaVe significantly outperforms direct fine-tuning of strong VLA baselines,
+            showing the effectiveness of bottom-up learning and action decoupling.
+          </li>
+          <li>
+            Ablation studies validate the importance of
+            <strong>Stage 1 semantic perception pretraining</strong>,
+            <strong>Stage 2 active manipulation finetuning</strong>,
+            <strong>decoupled action heads</strong>,
+            <strong>camera adapter</strong>, and
+            <strong>universal spatial knowledge injection</strong>.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-world -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Real-World Evaluation</h2>
+      </div>
+
+      <div class="columns is-multiline">
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Articulated Manipulation</p>
+        </div>
+      
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Pick-and-Place</p>
+        </div>
+      
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Pick-and-Place</p>
+        </div>
+      
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Articulated Manipulation</p>
+        </div>
+      
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo6.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Articulated generalization</p>
+        </div>
+      
+        <div class="column is-4">
+          <div class="video-wrapper">
+            <video controls playsinline muted>
+              <source src="assets/videos/demo7.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="video-grid-caption">Real-world Pick-and-Place generalization</p>
+        </div>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          We deploy SaPaVe on a real <strong>Unitree G1 humanoid robot</strong> equipped with
+          <strong>Inspire 3 dexterous hands</strong> and a custom active head with
+          <strong>RealSense D455 RGB-D camera</strong>.
+        </p>
+        <p>
+          The real-world evaluation includes:
+        </p>
+        <ul>
+          <li>Occluded Pick-and-Place</li>
+          <li>Out-of-View Pick-and-Place</li>
+          <li>Occluded Articulated Manipulation</li>
+          <li>Out-of-View Articulated Manipulation</li>
+        </ul>
+        <p>
+          We additionally test generalization under <strong>unseen objects</strong>,
+          <strong>unseen scenes</strong>, and <strong>lighting changes</strong>,
+          where SaPaVe demonstrates robust performance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusion -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h2 class="title is-3">Conclusion</h2>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+          SaPaVe presents a new direction for robotic active manipulation by tightly coupling
+          semantic active perception with active-view execution.
+          Through a decoupled action formulation, a two-stage bottom-up learning strategy,
+          and flexible 3D spatial knowledge integration, the framework achieves strong performance
+          across simulation and real-world settings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="bibtex">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{liu2026sapave,
+  title={SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics},
+  author={Liu, Mengzhen and Zhou, Enshen and Chi, Cheng and Han, Yi and Rong, Shanyu and Chen, Liming and Wang, Pengwei and Wang, Zhongyuan and Zhang, Shanghang},
+  journal={arXiv preprint arXiv},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          This website is adapted from an academic project page template for research presentation.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
