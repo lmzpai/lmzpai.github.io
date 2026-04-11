@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mengzhen Liu</title>
+  <meta name="description" content="Mengzhen Liu | Ph.D. Student at Peking University | Vision-Language-Action (VLA), Embodied Agents, Robotics" />
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+      --maxw: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav-inner,
+    .container {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 0.96rem;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 30px;
+      margin: 18px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.6fr 280px;
+      gap: 28px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 0 0 18px;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      margin: 0 0 12px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .org-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #374151;
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+    }
+
+    .intro p {
+      margin: 0 0 12px;
+      font-size: 1rem;
+    }
+
+    .bullets {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+    }
+
+    .bullets li { margin: 8px 0; }
+
+    .profile-box {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      width: 100%;
+      max-width: 230px;
+      aspect-ratio: 3 / 4;
+      border: 1px solid #d1d5db;
+      background: linear-gradient(180deg, #f8fafc, #e5e7eb);
+      padding: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #e5e7eb;
+    }
+
+    .pill-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      border: 1px solid #bfdbfe;
+      font-size: 0.94rem;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    .framework-wrap {
+      margin-top: 6px;
+    }
+
+    .framework-top,
+    .framework-mid {
+      border: 2px solid #93c5fd;
+      background: #f8fbff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .framework-top strong,
+    .framework-mid strong {
+      display: block;
+      font-size: 1.3rem;
+      color: #1e3a8a;
+      margin-bottom: 6px;
+    }
+
+    .framework-caption {
+      color: #4b5563;
+      font-size: 0.98rem;
+    }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .framework-grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .f-card {
+      border: 2px dashed #93c5fd;
+      border-radius: 12px;
+      padding: 16px 14px;
+      text-align: center;
+      background: #ffffff;
+      min-height: 148px;
+    }
+
+    .f-card h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #1f2937;
+    }
+
+    .f-card p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .item-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .item:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .item-title {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .item-meta {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    .news-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .news-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .news-row:last-child { border-bottom: 0; }
+
+    .pub-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pub {
+      display: grid;
+      grid-template-columns: 124px 1fr;
+      gap: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .pub:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .thumb {
+      width: 124px;
+      height: 82px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d4ed8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .pub-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .authors,
+    .venue,
+    .pub-desc {
+      font-size: 0.96rem;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-left: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.96rem;
+    }
+
+    .muted-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .two-col,
+      .framework-grid,
+      .framework-grid.three {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-box {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.3rem; }
+      h2 { font-size: 1.6rem; }
+      .section-card { padding: 20px; }
+      .nav-links { gap: 14px; font-size: 0.9rem; }
+      .pub { grid-template-columns: 1fr; }
+      .thumb { width: 100%; height: 140px; }
+      .news-row,
+      .item { grid-template-columns: 1fr; }
+      .date { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Mengzhen Liu</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#framework">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="section-card hero">
+      <div class="intro">
+        <h1>Mengzhen Liu</h1>
+        <div class="subtitle">Ph.D. Student | Vision-Language-Action (VLA) | Embodied Agents | Robotics</div>
+
+        <div class="org-list">
+          <div>🎓 Peking University</div>
+          <div>🏛️ School of Computer and Information Technology</div>
+          <div>🤖 Vision-Language-Action · Embodied Agents · Robotics</div>
+        </div>
+
+        <p>
+          Hi, I am Mengzhen Liu, a Ph.D. student at Peking University advised by Prof. Shanghang Zhang.
+          My research centers on <strong>Vision-Language-Action (VLA) models</strong> and <strong>embodied agents</strong>,
+          with a focus on building robotic systems that can perceive, reason, and act robustly in open-world environments.
+        </p>
+        <p>
+          My recent work forms a coherent VLA research pipeline spanning <strong>model architecture</strong>,
+          <strong>data construction</strong>, <strong>perception enhancement</strong>, and <strong>efficient multimodal inference</strong>.
+          Representative works include <strong>SaPaVe</strong> on active perception and manipulation,
+          <strong>RoboMamba</strong> and <strong>HybridVLA</strong> on VLA architectures,
+          <strong>RoboMIND</strong> and <strong>MotionTrans</strong> on robotic data,
+          <strong>RoboTracer</strong> and <strong>RoboBrain 2.5</strong> on spatial-temporal embodied perception,
+          and <strong>CDPruner</strong> on VLM/VLA acceleration.
+        </p>
+
+        <ul class="bullets">
+          <li><strong>VLA Frameworks:</strong> RoboMamba and HybridVLA for end-to-end robotic reasoning and action generation.</li>
+          <li><strong>VLA Data:</strong> RoboMIND and MotionTrans for multi-embodiment and human-to-robot manipulation learning.</li>
+          <li><strong>Perception-Enhanced VLA:</strong> SaPaVe, RoboTracer, RoboBrain 2.5, and CordViP for active perception, spatial tracing, temporal grounding, and visuomotor perception.</li>
+          <li><strong>Efficient VLM/VLA:</strong> Beyond Attention or Similarity (CDPruner) for training-free token pruning and deployable embodied intelligence.</li>
+        </ul>
+
+        <p><strong>I am always open to academic and industrial collaborations. Feel free to reach out if our interests align.</strong></p>
+
+        <div class="pill-links">
+          <a class="pill" href="mailto:mengzhenliu25@stu.pku.edu.cn">Email</a>
+          <a class="pill" href="https://scholar.google.com/citations?user=AUVUNusAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="pill" href="https://openreview.net/profile?id=~Mengzhen_Liu1" target="_blank" rel="noopener noreferrer">OpenReview</a>
+          <a class="pill" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <div class="profile-box">
+        <div class="photo-frame">
+          <img src="images/profile.jpg" alt="Mengzhen Liu portrait" />
+        </div>
+      </div>
+    </section>
+
+    <section id="framework" class="section-card">
+      <h2>Research Framework</h2>
+      <div class="framework-wrap">
+        <div class="framework-top">
+          <strong>Vision-Language-Action and Embodied Agents</strong>
+          <div class="framework-caption">
+            How to build robotic systems that can perceive, reason, and act robustly in open-world environments?
+          </div>
+        </div>
+
+        <div class="framework-grid">
+          <div class="f-card">
+            <h4>VLA Frameworks</h4>
+            <p>RoboMamba<br />HybridVLA</p>
+          </div>
+          <div class="f-card">
+            <h4>VLA Data</h4>
+            <p>RoboMIND<br />MotionTrans</p>
+          </div>
+          <div class="f-card">
+            <h4>Perception-Enhanced VLA</h4>
+            <p>SaPaVe<br />CordViP</p>
+          </div>
+          <div class="f-card">
+            <h4>Efficient VLM/VLA</h4>
+            <p>CDPruner<br />Deployable Embodied Agents</p>
+          </div>
+        </div>
+
+        <div class="framework-mid">
+          <strong>Spatial-Temporal Embodied Perception and Manipulation</strong>
+          <div class="framework-caption">
+            How to connect active view selection, spatial reasoning, temporal grounding, and manipulation policy learning?
+          </div>
+        </div>
+
+        <div class="framework-grid three">
+          <div class="f-card">
+            <h4>Active Perception</h4>
+            <p>SaPaVe<br />Active perception and manipulation for robotics</p>
+          </div>
+          <div class="f-card">
+            <h4>Spatial-Temporal Reasoning</h4>
+            <p>RoboTracer<br />RoboBrain 2.5</p>
+          </div>
+          <div class="f-card">
+            <h4>Manipulation and Visuomotor Policy</h4>
+            <p>CordViP<br />MotionTrans</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="section-card">
+        <h3>Education</h3>
+        <div class="item-list">
+          <div class="item">
+            <div>
+              <div class="item-title">Peking University</div>
+              <div class="item-meta">Ph.D. in Computer and Information Technology</div>
+              <div class="item-meta">Advisor: Prof. Shanghang Zhang</div>
+            </div>
+            <div class="date">2025 – 2030</div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-title">Beijing Jiaotong University</div>
+              <div class="item-meta">B.Eng. in Computer and Information Technology</div>
+              <div class="item-meta">Rank: 1</div>
+            </div>
+            <div class="date">2021 – 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h3>Research Focus</h3>
+        <div class="item-list">
+          <div class="item">
+            <div>
+              <div class="item-title">Vision-Language-Action Models</div>
+              <div class="item-meta">Architecture design, reasoning, and action generation for robotics.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-title">Embodied Agents</div>
+              <div class="item-meta">Spatial-temporal perception, active view selection, and robust manipulation.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div>
+              <div class="item-title">Efficient Multimodal Inference</div>
+              <div class="item-meta">Acceleration and deployment of VLM/VLA systems in embodied settings.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h3>News</h3>
+      <div class="news-list">
+        <div class="news-row">
+          <div><strong>SaPaVe</strong> was accepted to <strong>CVPR 2026</strong> as a <strong>Highlight</strong>.</div>
+          <div class="date">2026</div>
+        </div>
+        <div class="news-row">
+          <div><strong>HybridVLA</strong> was accepted to <strong>ICLR 2026</strong> as a poster.</div>
+          <div class="date">2026</div>
+        </div>
+        <div class="news-row">
+          <div><strong>Beyond Attention or Similarity</strong> was accepted to <strong>NeurIPS 2025</strong>.</div>
+          <div class="date">2025</div>
+        </div>
+        <div class="news-row">
+          <div><strong>RoboMIND</strong> and <strong>CordViP</strong> were accepted to <strong>RSS 2025</strong>.</div>
+          <div class="date">2025</div>
+        </div>
+        <div class="news-row">
+          <div><strong>RoboMamba</strong> was accepted to <strong>NeurIPS 2024</strong>.</div>
+          <div class="date">2024</div>
+        </div>
+        <div class="news-row">
+          <div><strong>Segment Anything with Precise Interaction</strong> was accepted to <strong>ACM MM 2024</strong> as an oral.</div>
+          <div class="date">2024</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section-card">
+      <h3>Selected Publications</h3>
+      <div class="pub-list">
+        <article class="pub">
+          <div class="thumb">SaPaVe</div>
+          <div>
+            <div class="pub-title">SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics <span class="tag">First Author</span></div>
+            <div class="authors">Mengzhen Liu, Enshen Zhou, Cheng Chi, Yi Han, Shanyu Rong, Liming Chen, Pengwei Wang, Zhongyuan Wang, Shanghang Zhang</div>
+            <div class="venue">CVPR 2026 <span class="tag">Highlight</span></div>
+            <div class="pub-desc">Active perception and manipulation framework for robotics, together with ActiveViewPose-200K and ActiveManip-Bench.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">RoboMamba</div>
+          <div>
+            <div class="pub-title">RoboMamba: Efficient Vision-Language-Action Model for Robotic Reasoning and Manipulation <span class="tag">Project Leader</span></div>
+            <div class="authors">Jiaming Liu*, Mengzhen Liu*, Zhenyu Wang, Pengju An, Xiaoqi Li, Kaichen Zhou, Senqiao Yang, Renrui Zhang, Yandong Guo, Shanghang Zhang</div>
+            <div class="venue">NeurIPS 2024</div>
+            <div class="pub-desc">Efficient Mamba-based VLA model for robotic reasoning and manipulation with substantially faster inference.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">HybridVLA</div>
+          <div>
+            <div class="pub-title">HybridVLA: Collaborative Diffusion and Autoregression in a Unified Vision-Language-Action Model</div>
+            <div class="authors">Jiaming Liu, Hao Chen, Zhuoyang Liu, Pengju An, Renrui Zhang, Chenyang Gu, Xiaoqi Li, Ziyu Guo, Sixiang Chen, Mengzhen Liu, Chengkai Hou, Mengdi Zhao, KC Alex Zhou, Pheng-Ann Heng, Shanghang Zhang</div>
+            <div class="venue">ICLR 2026</div>
+            <div class="pub-desc">Unified VLA architecture that combines autoregressive reasoning with diffusion-based action generation.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">RoboMIND</div>
+          <div>
+            <div class="pub-title">RoboMIND: Benchmark on Multi-embodiment Intelligence Normative Data for Robot Manipulation</div>
+            <div class="authors">Kun Wu, Chengkai Hou, Jiaming Liu, Zhengping Che, Xiaozhu Ju, Zhuqin Yang, Meng Li, Yinuo Zhao, Zhiyuan Xu, Guang Yang, ... , Mengzhen Liu, ... , Shanghang Zhang, Jian Tang</div>
+            <div class="venue">RSS 2025</div>
+            <div class="pub-desc">Large-scale multi-embodiment robotic dataset and benchmark for standardized VLA training and evaluation.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">MotionTrans</div>
+          <div>
+            <div class="pub-title">MotionTrans: Human VR Data Enable Motion-Level Learning for Robotic Manipulation Policies</div>
+            <div class="authors">Chengbo Yuan, Rui Zhou, Mengzhen Liu, Yingdong Hu, Shengjie Wang, Li Yi, Chuan Wen, Shanghang Zhang, Yang Gao</div>
+            <div class="venue">ICRA 2026</div>
+            <div class="pub-desc">Human-to-robot motion transfer from VR data for robotic manipulation policy learning.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">CordViP</div>
+          <div>
+            <div class="pub-title">CordViP: Correspondence-based Visuomotor Policy for Dexterous Manipulation in Real-World</div>
+            <div class="authors">Yankai Fu, Qiuxuan Feng, Ning Chen, Zichen Zhou, Mengzhen Liu, Mingdong Wu, Tianxing Chen, Shanyu Rong, Jiaming Liu, Hao Dong, Shanghang Zhang</div>
+            <div class="venue">RSS 2025</div>
+            <div class="pub-desc">Correspondence-based visuomotor policy for dexterous manipulation with strong real-world robustness.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">RoboTracer</div>
+          <div>
+            <div class="pub-title">RoboTracer: Mastering Spatial Trace with Reasoning in Vision-Language Models for Robotics</div>
+            <div class="authors">Enshen Zhou, Cheng Chi, Yibo Li, Jingkun An, Jiayuan Zhang, Shanyu Rong, Yi Han, Yuheng Ji, Mengzhen Liu, Pengwei Wang, Zhongyuan Wang, Lu Sheng, Shanghang Zhang</div>
+            <div class="venue">ECCV 2026 Submitted</div>
+            <div class="pub-desc">3D-aware spatial tracing and metric-grounded reasoning for robotics with TraceSpatial dataset and benchmark.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">RoboBrain 2.5</div>
+          <div>
+            <div class="pub-title">RoboBrain 2.5: Depth in Sight, Time in Mind</div>
+            <div class="authors">Huan Tan, ... , Mengzhen Liu, ...</div>
+            <div class="venue">Technical Report</div>
+            <div class="pub-desc">Embodied foundation model emphasizing stronger depth perception, spatial reasoning, and temporal modeling.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">CDPruner</div>
+          <div>
+            <div class="pub-title">Beyond Attention or Similarity: Maximizing Conditional Diversity for Token Pruning in MLLMs</div>
+            <div class="authors">Qizhe Zhang, Mengzhen Liu, Lichen Li, Ming Lu, Yuan Zhang, Junwen Pan, Qi She, Shanghang Zhang</div>
+            <div class="venue">NeurIPS 2025</div>
+            <div class="pub-desc">Training-free and model-agnostic token pruning method for accelerating VLM/VLA-style multimodal inference.</div>
+          </div>
+        </article>
+
+        <article class="pub">
+          <div class="thumb">Pi-SAM</div>
+          <div>
+            <div class="pub-title">Segment Anything with Precise Interaction <span class="tag">First Author</span></div>
+            <div class="authors">Mengzhen Liu, Mengyu Wang, Henghui Ding, Yilong Xu, Yao Zhao, Yunchao Wei</div>
+            <div class="venue">ACM MM 2024 <span class="tag">Oral</span></div>
+            <div class="pub-desc">Earlier first-author work on precise interactive segmentation and fine-grained perception.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section-card">
+      <h3>Contact</h3>
+      <div class="footer-links">
+        <a href="mailto:mengzhenliu25@stu.pku.edu.cn">mengzhenliu25@stu.pku.edu.cn</a>
+        <a href="https://scholar.google.com/citations?user=AUVUNusAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://openreview.net/profile?id=~Mengzhen_Liu1" target="_blank" rel="noopener noreferrer">OpenReview</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="muted-note">For GitHub Pages deployment, place this file as <code>index.html</code> and put your portrait at <code>images/profile.jpg</code>.</div>
+    </section>
+  </main>
+</body>
+</html>
